@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/Gifs">
+        <file>sea_gif.gif</file>
+        <file>sea0.gif</file>
+        <file>sea1.gif</file>
+        <file>sea2.gif</file>
+    </qresource>
+    <qresource prefix="/OtherGifs">
+        <file>seaGify.gif</file>
+    </qresource>
+</RCC>

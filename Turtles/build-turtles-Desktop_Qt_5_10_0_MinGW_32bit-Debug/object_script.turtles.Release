@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\register.o
+./release\investigador.o
+./release\welcome.o
+./release\menuprincipal.o
+./release\qrc_images.o
+./release\moc_mainwindow.o
+./release\moc_register.o
+./release\moc_welcome.o
+./release\moc_menuprincipal.o
+);

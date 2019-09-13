@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>cuidador.png</file>
+        <file>89db9d52-4aa6-49f6-a3fc-b7864a1910ab.jpg</file>
+        <file>TunderSoft.png</file>
+        <file>littleleatherbackturtlesrogerleguen.jpg</file>
+        <file>turtlePNG.png</file>
+        <file>report.ico</file>
+        <file>report_add.ico</file>
+        <file>report_save.ico</file>
+        <file>stats_icon-icons.com_60590_60590.ico</file>
+        <file>report_edit.ico</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,92 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QSqlTableModel>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QMovie>
+#include <QBitmap>
+#include <QDebug>
+#include "menuprincipal.h"
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+    ui->setupUi(this);
+    mDataBase = QSqlDatabase::addDatabase("QMYSQL");
+    mDataBase.setHostName("127.0.0.1");
+    mDataBase.setDatabaseName("turtles");
+    mDataBase.setPort(3306);
+    mDataBase.setUserName("root");
+    mDataBase.setPassword("RAMD6609058aa");
+
+
+    /*mDataBase = QSqlDatabase::addDatabase("QMYSQL");
+    mDataBase.setHostName("sql212.byethost.com");
+    mDataBase.setDatabaseName("b12_22809668_turtles");
+    mDataBase.setPort(3306);
+    mDataBase.setUserName("b12_22809668@192.168.0.6");
+    mDataBase.setPassword("cykn9qwf");*/
+
+    setVisualEfects();
+
+    if (!mDataBase.open()) {
+        QMessageBox::critical(this, "Error", mDataBase.lastError().text());
+        return;
+        }
+    }
+
+MainWindow::~MainWindow() {
+    mDataBase.close();
+    delete ui;
+}
+
+void MainWindow::setVisualEfects()
+{
+    ui->psbRegistrarse->setStyleSheet("QPushButton{background: transparent;}");
+    ui->psbRegistrarse->setAttribute(Qt::WA_TranslucentBackground);
+
+    QMovie *peli = new QMovie(":/Images/sea_gif.gif");
+    ui->backgroundLB->setMovie(peli);
+    peli->start();
+}
+
+void MainWindow::checkLogin() {
+    QString user, password;
+    QSqlQuery query;
+
+    user = ui->ledUsuario->text();
+    password = ui->ledPassword->text();
+
+    query.exec(QString("SELECT COUNT(*) FROM INVESTIGADOR WHERE USUARIO = '%1' and CONTRASENA = MD5(SHA1('%2'))")
+               .arg(user).arg(password));
+    query.next();
+
+    if (query.value(0).toInt() == 1) {
+        QMessageBox::information(this, "Acceso al sistema", "¡Acceso conseguido!");
+
+        ui->ledUsuario->clear();
+        ui->ledPassword->clear();
+        ui->ledUsuario->setFocus();
+
+        MenuPrincipal *menu = new MenuPrincipal();
+        menu->show();
+        }
+    else QMessageBox::information(this, "Acceso al sistema", "Datos incorrectos.");
+    }
+
+void MainWindow::on_psbEntrar_clicked() {
+    checkLogin();
+    }
+
+void MainWindow::on_psbRegistrarse_clicked() {
+    Register *myReg = new Register;
+    myReg->setWindowModality(Qt::ApplicationModal);
+    myReg->show();
+    }
+
+void MainWindow::on_ledPassword_returnPressed() {
+    checkLogin();
+    }
+
+void MainWindow::on_ledUsuario_returnPressed() {
+    ui->ledPassword->setFocus();
+    }

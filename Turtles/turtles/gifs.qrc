@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Giffys">
+        <file>77.gif</file>
+        <file>turtle-clipart-animation.gif</file>
+    </qresource>
+</RCC>

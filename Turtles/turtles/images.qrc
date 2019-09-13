@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>if_Turtle_204384.ico</file>
+        <file>add.ico</file>
+        <file>sea_gif.gif</file>
+        <file>ocean.jpg</file>
+        <file>Tortugas-Marinas.jpg</file>
+        <file>user_add.ico</file>
+        <file>door_in.ico</file>
+        <file>sea2.gif</file>
+        <file>379538.ico</file>
+        <file>89.gif</file>
+        <file>world.ico</file>
+        <file>381031-200.ico</file>
+        <file>map-map-marker-icon_34394.ico</file>
+        <file>maxresdefault.jpg</file>
+        <file>door_out.ico</file>
+        <file>switch_windows.ico</file>
+        <file>Turtli.png</file>
+        <file>tuIcone.png</file>
+        <file>tortugaagua.jpeg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Map.qml</file>
+        <file>tortugaagua.jpeg</file>
+    </qresource>
+</RCC>
